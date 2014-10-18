@@ -1,0 +1,274 @@
+Public Class Form1
+    REM /////////////////////// Variable Declaration:
+    REM Specify wether the OS exists in the USB or not
+    Dim Win7x86Exists As Integer = 1
+    Dim Win7x64Exists As Integer = 1
+    Dim Win8x86Exists As Integer = 1
+    Dim Win8x64Exists As Integer = 1
+    REM Determines the drive letter of the USB
+    Dim DriveLetter As Char = (Application.StartupPath.Substring(0, 1))
+
+    REM If the OSs Exist, then they are reset to "Not in root" state when a new one is copied
+    Function Color_Reset()
+        If Win7x86Exists Then Win7x86.BackColor = Color.Transparent
+        If Win7x64Exists Then Win7x64.BackColor = Color.Transparent
+        If Win8x86Exists Then Win8x86.BackColor = Color.Transparent
+        If Win8x64Exists Then Win8x64.BackColor = Color.Transparent
+        Cleanup.BackColor = Color.Transparent
+        RunSetup.BackColor = Color.Transparent
+        Win7.BackColor = Color.Transparent
+        Win8.BackColor = Color.Transparent
+    End Function
+
+    REM ///////////////////////////INTEGRITY CHECKS //////////////////////////////////
+    REM ///////Returns 1 if it exists in EXTRA and 0 if it is missing/incomplete//////
+    
+    Function Win7x86_Integrity()
+        If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\boot") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\efi") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\sources") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\support") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\upgrade") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\bootmgr") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\Setup.exe") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\WIN7AIO32.txt") Then
+               Return 1
+        End If
+        Win7x86.BackColor = Color.Red
+        Win7x86.Enabled = False
+        Win7x86Exists = 0
+        Return 0
+    End Function
+    Function Win7x64_Integrity()
+        If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\boot") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\efi") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\sources") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\support") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\upgrade") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr.efi") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\Setup.exe") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\WIN7AIO64.txt") Then
+               Return 1
+        End If
+        Win7x64.BackColor = Color.Red
+        Win7x64.Enabled = False
+        Win7x64Exists = 0
+        Return 0
+    End Function
+    Function Win8x86_Integrity()
+        If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\boot") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\efi") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\sources") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\support") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr.efi") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\Setup.exe") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\WIN8AIO32.txt") Then
+               Return 1
+        End If
+        Win8x86.BackColor = Color.Red
+        Win8x86.Enabled = False
+        Win8x86Exists = 0
+        Return 0
+    End Function
+    Function Win8x64_Integrity()
+        If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\boot") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\efi") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\sources") And
+           My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\support") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr.efi") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\Setup.exe") And
+           My.Computer.FileSystem.FileExists(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\WIN8AIO64.txt") Then
+               Return 1
+        End If
+        Win8x64.BackColor = Color.Red
+        Win8x64.Enabled = False
+        Win8x64Exists = 0
+        Return 0
+    End Function
+    REM /////////////////////////// CLEANUP SCRIPTS //////////////////////////////////
+    REM ///// This removes current OSs in the root and places them in EXTRA //////////
+    Function Setup_Cleanup()
+        REM Windows 7 x86
+        If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN7AIO32.txt") Then
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\boot") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\boot", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\boot")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\efi") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\efi", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\efi")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\sources") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\sources", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\sources")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\support") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\support", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\support")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\upgrade") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\upgrade", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\upgrade")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\bootmgr")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\Setup.exe") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\Setup.exe", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\Setup.exe")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN7AIO32.txt") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\WIN7AIO32.txt", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\WIN7AIO32.txt")
+            Win7x86_Integrity()
+            Return 0
+        End If
+        REM Windows 7 x64
+        If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN7AIO64.txt") Then
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\boot") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\boot", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\boot")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\efi") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\efi", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\efi")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\NET452") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\NET452", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\NET452")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\Scripts") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\Scripts", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\Scripts")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\sources") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\sources", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\sources")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\support") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\support", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\support")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\upgrade") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\upgrade", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\upgrade")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr.efi") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr.efi", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr.efi")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\Setup.exe") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\Setup.exe", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\Setup.exe")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN7AIO64.txt") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\WIN7AIO64.txt", DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\WIN7AIO64.txt")
+            Win7x64_Integrity()
+            Return 0
+        End If
+        REM Windows 8.1 x86
+        If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN8AIO32.txt") Then
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\boot") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\boot", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\boot")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\efi") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\efi", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\efi")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\sources") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\sources", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\sources")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\support") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\support", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\support")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr.efi") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr.efi", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr.efi")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\MediaMeta.xml") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\MediaMeta.xml", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\MediaMeta.xml")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\Setup.exe") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\Setup.exe", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\Setup.exe")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN8AIO32.txt") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\WIN8AIO32.txt", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\WIN8AIO32.txt")
+            Win8x86_Integrity()
+            Return 0
+        End If
+        REM Windows 8.1 x64
+        If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN8AIO64.txt") Then
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\boot") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\boot", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\boot")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\efi") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\efi", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\efi")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\sources") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\sources", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\sources")
+            If My.Computer.FileSystem.DirectoryExists(DriveLetter + ":\support") Then My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\support", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\support")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\bootmgr.efi") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\bootmgr.efi", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr.efi")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\MediaMeta.xml") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\MediaMeta.xml", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\MediaMeta.xml")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\Setup.exe") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\Setup.exe", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\Setup.exe")
+            If My.Computer.FileSystem.FileExists(DriveLetter + ":\WIN8AIO64.txt") Then My.Computer.FileSystem.MoveFile(DriveLetter + ":\WIN8AIO64.txt", DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\WIN8AIO64.txt")
+            Win8x64_Integrity()
+            Return 0
+        End If
+    End Function
+    REM ////////////////////// APPLICATION STARTS HERE ///////////////////////////////
+    REM //////////// On Startup, cleans USB and verifies os integrity ////////////////
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        REM File Integrity Check
+        REM Cleans out root (buggy as it relies on .txt) and informs you if an OS is incomplete
+        Setup_Cleanup()
+        Win7x86_Integrity()
+        Win7x64_Integrity()
+        Win8x86_Integrity()
+        Win8x64_Integrity()
+        Color_Reset()
+
+        StorageSpace.Minimum = 0
+        StorageSpace.Maximum = StickCapacity
+    End Sub
+    REM ////////////////////// WIN VERSION BUTTONS ///////////////////////////////////
+    REM ///////////These attempt to prepare the desired OS for instalation////////////
+    
+    Private Sub Win786_Click(sender As Object, e As EventArgs)
+
+        If Win7x86.BackColor = Color.Lime Then Exit Sub
+        If Win7x86_Integrity() = 0 Then Exit Sub
+
+        Setup_Cleanup()
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\boot", DriveLetter + ":\boot")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\efi", DriveLetter + ":\efi")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\sources", DriveLetter + ":\sources")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\support", DriveLetter + ":\support")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\upgrade", DriveLetter + ":\upgrade")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\bootmgr", DriveLetter + ":\bootmgr")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\Setup.exe", DriveLetter + ":\Setup.exe")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO32\WIN7AIO32.txt", DriveLetter + ":\WIN7AIO32.txt")
+
+        Color_Reset()
+        RunSetup.BackColor = Color.Yellow
+        Win7.BackColor = Color.Lime
+        Win7x86.BackColor = Color.Lime
+
+    End Sub
+    Private Sub Win764_Click(sender As Object, e As EventArgs)
+
+        If Win7x64.BackColor = Color.Lime Then Exit Sub
+        If Win7x64_Integrity() = 0 Then Exit Sub
+
+        Setup_Cleanup()
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\boot", DriveLetter + ":\boot")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\efi", DriveLetter + ":\efi")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\sources", DriveLetter + ":\sources")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\support", DriveLetter + ":\support")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\upgrade", DriveLetter + ":\upgrade")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr", DriveLetter + ":\bootmgr")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\bootmgr.efi", DriveLetter + ":\bootmgr.efi")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\Setup.exe", DriveLetter + ":\Setup.exe")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN7AIO64\WIN7AIO64.txt", DriveLetter + ":\WIN7AIO64.txt")
+
+        Color_Reset()
+        RunSetup.BackColor = Color.Yellow
+        Win7.BackColor = Color.Lime
+        Win7x64.BackColor = Color.Lime
+    End Sub
+    Private Sub Win886_Click(sender As Object, e As EventArgs)
+
+        If Win8x86.BackColor = Color.Lime Then Exit Sub
+        If Win8x86_Integrity() = 0 Then Exit Sub
+
+        Setup_Cleanup()
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\boot", DriveLetter + ":\boot")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\efi", DriveLetter + ":\efi")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\sources", DriveLetter + ":\sources")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\support", DriveLetter + ":\support")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr", DriveLetter + ":\bootmgr")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\bootmgr.efi", DriveLetter + ":\bootmgr.efi")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\MediaMeta.xml", DriveLetter + ":\MediaMeta.xml")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\Setup.exe", DriveLetter + ":\Setup.exe")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO32\WIN8AIO32.txt", DriveLetter + ":\WIN8AIO32.txt")
+
+        Color_Reset()
+        RunSetup.BackColor = Color.Yellow
+        Win8.BackColor = Color.Lime
+        Win8x86.BackColor = Color.Lime
+
+    End Sub
+    Private Sub Win864_Click(sender As Object, e As EventArgs)
+
+        If Win8x64.BackColor = Color.Lime Then Exit Sub
+        If Win8x64_Integrity() = 0 Then Exit Sub
+
+        Setup_Cleanup()
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\boot", DriveLetter + ":\boot")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\efi", DriveLetter + ":\efi")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\sources", DriveLetter + ":\sources")
+        My.Computer.FileSystem.MoveDirectory(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\support", DriveLetter + ":\support")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr", DriveLetter + ":\bootmgr")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\bootmgr.efi", DriveLetter + ":\bootmgr.efi")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\MediaMeta.xml", DriveLetter + ":\MediaMeta.xml")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\Setup.exe", DriveLetter + ":\Setup.exe")
+        My.Computer.FileSystem.MoveFile(DriveLetter + ":\DBUSB\EXTRA\WIN8AIO64\WIN8AIO64.txt", DriveLetter + ":\WIN8AIO64.txt")
+
+        Color_Reset()
+        RunSetup.BackColor = Color.Yellow
+        Win8.BackColor = Color.Lime
+        Win8x64.BackColor = Color.Lime
+    End Sub
+    Private Sub Cleanup_Click(sender As Object, e As EventArgs)
+
+        If Cleanup.BackColor = Color.Lime Then Exit Sub
+
+        Setup_Cleanup()
+        Color_Reset()
+        Cleanup.BackColor = Color.Lime
+
+    End Sub
+    REM When an OS is selected, pressing this will run the Setup from within Windows
+    Private Sub RunSetup_Click(sender As Object, e As EventArgs)
+        If RunSetup.BackColor = Color.Yellow And My.Computer.FileSystem.FileExists(DriveLetter + ":\Setup.exe") Then Process.Start(DriveLetter + ":\Setup.exe")
+    End Sub
+    REM A shortcut for rebooting your computer after your OS of choice has been made ready
+    Private Sub Reboot_Click(sender As Object, e As EventArgs)
+        Dim response = MsgBox("Are you sure you want to reboot?", vbYesNo, "Reboot System")
+        If response = MsgBoxResult.Yes Then Shell("Shutdown -r -t 3")
+    End Sub
+
+End Class

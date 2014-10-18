@@ -1,0 +1,40 @@
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Debug\OSChoice.exe.config
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Debug\OSChoice.exe
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Debug\OSChoice.pdb
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Debug\OSChoice.xml
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.resources
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.Resources.resources
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.vbproj.GenerateResource.Cache
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.exe
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.xml
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Debug\OSChoice.pdb
+G:\OSChoice\OSChoice\bin\Debug\OSChoice.exe.config
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.exe
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.xml
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.pdb
+G:\OSChoice\OSChoice\bin\Debug\OSChoice.exe
+G:\OSChoice\OSChoice\bin\Debug\OSChoice.pdb
+G:\OSChoice\OSChoice\bin\Debug\OSChoice.xml
+G:\OSChoice\OSChoice\bin\Debug\en\OSChoice.resources.dll
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.resources
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.Resources.resources
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.en.resources
+G:\OSChoice\OSChoice\obj\Debug\OSChoice.vbproj.GenerateResource.Cache
+G:\OSChoice\OSChoice\obj\Debug\en\OSChoice.resources.dll
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.exe.config
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.exe
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.xml
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.pdb
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.exe.manifest
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.application
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.exe
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.pdb
+H:\OSChoice\OSChoice\bin\Debug\OSChoice.xml
+H:\OSChoice\OSChoice\bin\Debug\en\OSChoice.resources.dll
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.resources
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.Resources.resources
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.en.resources
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.vbproj.GenerateResource.Cache
+H:\OSChoice\OSChoice\obj\Debug\en\OSChoice.resources.dll
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.exe.manifest
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.application

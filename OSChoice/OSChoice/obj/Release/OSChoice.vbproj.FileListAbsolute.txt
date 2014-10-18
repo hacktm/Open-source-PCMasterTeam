@@ -1,0 +1,78 @@
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Release\OSChoice.exe
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Release\OSChoice.pdb
+D:\Programming\VS Projects\OSChoice\OSChoice\bin\Release\OSChoice.xml
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.Form1.resources
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.Resources.resources
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.vbproj.GenerateResource.Cache
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.exe
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.xml
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+D:\Programming\VS Projects\OSChoice\OSChoice\obj\Release\OSChoice.vbprojResolveAssemblyReference.cache
+D:\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+D:\OSChoice\OSChoice\obj\Release\OSChoice.exe
+D:\OSChoice\OSChoice\obj\Release\OSChoice.xml
+D:\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+D:\OSChoice\OSChoice\bin\Release\OSChoice.exe
+D:\OSChoice\OSChoice\bin\Release\OSChoice.pdb
+D:\OSChoice\OSChoice\bin\Release\OSChoice.xml
+D:\OSChoice\OSChoice\obj\Release\OSChoice.vbprojResolveAssemblyReference.cache
+D:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.resources
+D:\OSChoice\OSChoice\obj\Release\OSChoice.Resources.resources
+D:\OSChoice\OSChoice\obj\Release\OSChoice.vbproj.GenerateResource.Cache
+F:\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+F:\OSChoice\OSChoice\obj\Release\OSChoice.exe
+F:\OSChoice\OSChoice\obj\Release\OSChoice.xml
+F:\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+F:\OSChoice\OSChoice\bin\Release\OSChoice.exe
+F:\OSChoice\OSChoice\bin\Release\OSChoice.pdb
+F:\OSChoice\OSChoice\bin\Release\OSChoice.xml
+F:\OSChoice\OSChoice\obj\Release\OSChoice.vbprojResolveAssemblyReference.cache
+F:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.resources
+F:\OSChoice\OSChoice\obj\Release\OSChoice.Resources.resources
+F:\OSChoice\OSChoice\obj\Release\OSChoice.vbproj.GenerateResource.Cache
+F:\OSChoice\OSChoice\bin\Release\en\OSChoice.resources.dll
+F:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.en.resources
+F:\OSChoice\OSChoice\obj\Release\en\OSChoice.resources.dll
+F:\OSChoice\OSChoice\bin\Release\OSChoice.exe.manifest
+F:\OSChoice\OSChoice\bin\Release\OSChoice.application
+F:\OSChoice\OSChoice\obj\Release\OSChoice.exe.manifest
+F:\OSChoice\OSChoice\obj\Release\OSChoice.application
+G:\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+G:\OSChoice\OSChoice\bin\Release\OSChoice.exe.manifest
+G:\OSChoice\OSChoice\bin\Release\OSChoice.application
+G:\OSChoice\OSChoice\bin\Release\OSChoice.exe
+G:\OSChoice\OSChoice\bin\Release\OSChoice.pdb
+G:\OSChoice\OSChoice\bin\Release\OSChoice.xml
+G:\OSChoice\OSChoice\bin\Release\en\OSChoice.resources.dll
+G:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.resources
+G:\OSChoice\OSChoice\obj\Release\OSChoice.Resources.resources
+G:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.en.resources
+G:\OSChoice\OSChoice\obj\Release\OSChoice.vbproj.GenerateResource.Cache
+G:\OSChoice\OSChoice\obj\Release\en\OSChoice.resources.dll
+G:\OSChoice\OSChoice\obj\Release\OSChoice.exe.manifest
+G:\OSChoice\OSChoice\obj\Release\OSChoice.application
+G:\OSChoice\OSChoice\obj\Release\OSChoice.exe
+G:\OSChoice\OSChoice\obj\Release\OSChoice.xml
+G:\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+E:\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+E:\OSChoice\OSChoice\obj\Release\OSChoice.exe
+E:\OSChoice\OSChoice\obj\Release\OSChoice.xml
+E:\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+H:\OSChoice\OSChoice\bin\Release\OSChoice.exe.config
+H:\OSChoice\OSChoice\obj\Release\OSChoice.exe
+H:\OSChoice\OSChoice\obj\Release\OSChoice.xml
+H:\OSChoice\OSChoice\obj\Release\OSChoice.pdb
+H:\OSChoice\OSChoice\bin\Release\OSChoice.exe.manifest
+H:\OSChoice\OSChoice\bin\Release\OSChoice.application
+H:\OSChoice\OSChoice\bin\Release\OSChoice.exe
+H:\OSChoice\OSChoice\bin\Release\OSChoice.pdb
+H:\OSChoice\OSChoice\bin\Release\OSChoice.xml
+H:\OSChoice\OSChoice\bin\Release\en\OSChoice.resources.dll
+H:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.resources
+H:\OSChoice\OSChoice\obj\Release\OSChoice.Resources.resources
+H:\OSChoice\OSChoice\obj\Release\OSChoice.Form1.en.resources
+H:\OSChoice\OSChoice\obj\Release\OSChoice.vbproj.GenerateResource.Cache
+H:\OSChoice\OSChoice\obj\Release\en\OSChoice.resources.dll
+H:\OSChoice\OSChoice\obj\Release\OSChoice.exe.manifest
+H:\OSChoice\OSChoice\obj\Release\OSChoice.application
