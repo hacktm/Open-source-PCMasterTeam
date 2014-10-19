@@ -42,7 +42,8 @@ Partial Class Form1
         Me.StorageSpace = New System.Windows.Forms.ProgressBar()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
         Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
+        Me.FolderBrowser = New System.Windows.Forms.FolderBrowserDialog()
+        Me.BrowseFile = New System.Windows.Forms.OpenFileDialog()
         Me.Grbox_Control.SuspendLayout()
         CType(Me.Help, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Setup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -225,6 +226,13 @@ Partial Class Form1
         Me.VScrollBar1.Size = New System.Drawing.Size(17, 173)
         Me.VScrollBar1.TabIndex = 4
         '
+        'FolderBrowser
+        '
+        '
+        'BrowseFile
+        '
+        Me.BrowseFile.FileName = "OpenFileDialog1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,10 +279,11 @@ Partial Class Form1
     Friend WithEvents lbl_UsedSpace As System.Windows.Forms.Label
     Friend WithEvents lbl_TotalSpace As System.Windows.Forms.Label
     Friend WithEvents btn_AddWin As System.Windows.Forms.Button
-    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
+    Friend WithEvents FolderBrowser As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents logo As System.Windows.Forms.PictureBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents btn_Rem_Linux As System.Windows.Forms.Button
     Friend WithEvents btn_Add_Linux As System.Windows.Forms.Button
+    Friend WithEvents BrowseFile As System.Windows.Forms.OpenFileDialog
 
 End Class

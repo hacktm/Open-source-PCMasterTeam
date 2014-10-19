@@ -38,3 +38,4 @@ H:\OSChoice\OSChoice\obj\Debug\OSChoice.vbproj.GenerateResource.Cache
 H:\OSChoice\OSChoice\obj\Debug\en\OSChoice.resources.dll
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.exe.manifest
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.application
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.vbprojResolveAssemblyReference.cache
