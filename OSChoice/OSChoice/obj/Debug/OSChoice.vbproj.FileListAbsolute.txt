@@ -31,11 +31,11 @@ H:\OSChoice\OSChoice\bin\Debug\OSChoice.exe
 H:\OSChoice\OSChoice\bin\Debug\OSChoice.pdb
 H:\OSChoice\OSChoice\bin\Debug\OSChoice.xml
 H:\OSChoice\OSChoice\bin\Debug\en\OSChoice.resources.dll
-H:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.resources
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.Resources.resources
-H:\OSChoice\OSChoice\obj\Debug\OSChoice.Form1.en.resources
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.vbproj.GenerateResource.Cache
 H:\OSChoice\OSChoice\obj\Debug\en\OSChoice.resources.dll
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.exe.manifest
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.application
 H:\OSChoice\OSChoice\obj\Debug\OSChoice.vbprojResolveAssemblyReference.cache
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.MainForm.resources
+H:\OSChoice\OSChoice\obj\Debug\OSChoice.MainForm.en.resources

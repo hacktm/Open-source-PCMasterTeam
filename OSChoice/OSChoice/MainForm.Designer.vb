@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
+Partial Class MainForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -23,9 +23,8 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Grbox_Control = New System.Windows.Forms.GroupBox()
         Me.Help = New System.Windows.Forms.PictureBox()
         Me.Setup = New System.Windows.Forms.PictureBox()
         Me.Cleanup = New System.Windows.Forms.PictureBox()
@@ -33,18 +32,26 @@ Partial Class Form1
         Me.ShutDown = New System.Windows.Forms.PictureBox()
         Me.Grbox_Settings = New System.Windows.Forms.GroupBox()
         Me.logo = New System.Windows.Forms.PictureBox()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btn_rem_win = New System.Windows.Forms.Button()
         Me.btn_Rem_Linux = New System.Windows.Forms.Button()
         Me.btn_Add_Linux = New System.Windows.Forms.Button()
-        Me.btn_AddWin = New System.Windows.Forms.Button()
+        Me.btn_Add_Win = New System.Windows.Forms.Button()
         Me.lbl_TotalSpace = New System.Windows.Forms.Label()
         Me.lbl_UsedSpace = New System.Windows.Forms.Label()
         Me.StorageSpace = New System.Windows.Forms.ProgressBar()
-        Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.VScrollBar1 = New System.Windows.Forms.VScrollBar()
         Me.FolderBrowser = New System.Windows.Forms.FolderBrowserDialog()
         Me.BrowseFile = New System.Windows.Forms.OpenFileDialog()
-        Me.Grbox_Control.SuspendLayout()
+        Me.LinuxList = New System.Windows.Forms.ListBox()
+        Me.LabelLinux = New System.Windows.Forms.Label()
+        Me.Linux = New System.Windows.Forms.PictureBox()
+        Me.Downloads = New System.Windows.Forms.PictureBox()
+        Me.grbox_Control = New System.Windows.Forms.GroupBox()
+        Me.PrepareWindows = New System.Windows.Forms.Button()
+        Me.LabelWindows = New System.Windows.Forms.Label()
+        Me.Windows = New System.Windows.Forms.PictureBox()
+        Me.WinList = New System.Windows.Forms.ListBox()
+        Me.CurrentOS = New System.Windows.Forms.Label()
+        Me.CurOS = New System.Windows.Forms.Label()
         CType(Me.Help, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Setup, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Cleanup, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -52,6 +59,10 @@ Partial Class Form1
         CType(Me.ShutDown, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Grbox_Settings.SuspendLayout()
         CType(Me.logo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Linux, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Downloads, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.grbox_Control.SuspendLayout()
+        CType(Me.Windows, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ToolTip
@@ -60,24 +71,11 @@ Partial Class Form1
         Me.ToolTip.InitialDelay = 100
         Me.ToolTip.ReshowDelay = 100
         '
-        'Grbox_Control
-        '
-        Me.Grbox_Control.Controls.Add(Me.Help)
-        Me.Grbox_Control.Controls.Add(Me.Setup)
-        Me.Grbox_Control.Controls.Add(Me.Cleanup)
-        Me.Grbox_Control.Controls.Add(Me.Restart)
-        Me.Grbox_Control.Controls.Add(Me.ShutDown)
-        Me.Grbox_Control.Location = New System.Drawing.Point(588, 13)
-        Me.Grbox_Control.Name = "Grbox_Control"
-        Me.Grbox_Control.Size = New System.Drawing.Size(48, 233)
-        Me.Grbox_Control.TabIndex = 0
-        Me.Grbox_Control.TabStop = False
-        '
         'Help
         '
         Me.Help.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Help.Image = CType(resources.GetObject("Help.Image"), System.Drawing.Image)
-        Me.Help.Location = New System.Drawing.Point(6, 187)
+        Me.Help.Location = New System.Drawing.Point(49, 103)
         Me.Help.Name = "Help"
         Me.Help.Size = New System.Drawing.Size(36, 36)
         Me.Help.TabIndex = 4
@@ -87,7 +85,7 @@ Partial Class Form1
         '
         Me.Setup.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Setup.Image = CType(resources.GetObject("Setup.Image"), System.Drawing.Image)
-        Me.Setup.Location = New System.Drawing.Point(6, 145)
+        Me.Setup.Location = New System.Drawing.Point(49, 61)
         Me.Setup.Name = "Setup"
         Me.Setup.Size = New System.Drawing.Size(36, 36)
         Me.Setup.TabIndex = 3
@@ -97,7 +95,7 @@ Partial Class Form1
         '
         Me.Cleanup.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Cleanup.Image = CType(resources.GetObject("Cleanup.Image"), System.Drawing.Image)
-        Me.Cleanup.Location = New System.Drawing.Point(6, 103)
+        Me.Cleanup.Location = New System.Drawing.Point(7, 61)
         Me.Cleanup.Name = "Cleanup"
         Me.Cleanup.Size = New System.Drawing.Size(36, 36)
         Me.Cleanup.TabIndex = 2
@@ -107,7 +105,7 @@ Partial Class Form1
         '
         Me.Restart.Cursor = System.Windows.Forms.Cursors.Hand
         Me.Restart.Image = CType(resources.GetObject("Restart.Image"), System.Drawing.Image)
-        Me.Restart.Location = New System.Drawing.Point(6, 61)
+        Me.Restart.Location = New System.Drawing.Point(49, 19)
         Me.Restart.Name = "Restart"
         Me.Restart.Size = New System.Drawing.Size(36, 36)
         Me.Restart.TabIndex = 1
@@ -117,7 +115,7 @@ Partial Class Form1
         '
         Me.ShutDown.Cursor = System.Windows.Forms.Cursors.Hand
         Me.ShutDown.Image = CType(resources.GetObject("ShutDown.Image"), System.Drawing.Image)
-        Me.ShutDown.Location = New System.Drawing.Point(6, 19)
+        Me.ShutDown.Location = New System.Drawing.Point(7, 19)
         Me.ShutDown.Name = "ShutDown"
         Me.ShutDown.Size = New System.Drawing.Size(36, 36)
         Me.ShutDown.TabIndex = 0
@@ -126,10 +124,10 @@ Partial Class Form1
         'Grbox_Settings
         '
         Me.Grbox_Settings.Controls.Add(Me.logo)
-        Me.Grbox_Settings.Controls.Add(Me.Button1)
+        Me.Grbox_Settings.Controls.Add(Me.btn_rem_win)
         Me.Grbox_Settings.Controls.Add(Me.btn_Rem_Linux)
         Me.Grbox_Settings.Controls.Add(Me.btn_Add_Linux)
-        Me.Grbox_Settings.Controls.Add(Me.btn_AddWin)
+        Me.Grbox_Settings.Controls.Add(Me.btn_Add_Win)
         Me.Grbox_Settings.Location = New System.Drawing.Point(12, 221)
         Me.Grbox_Settings.Name = "Grbox_Settings"
         Me.Grbox_Settings.Size = New System.Drawing.Size(570, 48)
@@ -146,14 +144,14 @@ Partial Class Form1
         Me.logo.TabIndex = 6
         Me.logo.TabStop = False
         '
-        'Button1
+        'btn_rem_win
         '
-        Me.Button1.Location = New System.Drawing.Point(352, 19)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(103, 19)
-        Me.Button1.TabIndex = 5
-        Me.Button1.Text = "Remove Windows"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btn_rem_win.Location = New System.Drawing.Point(119, 19)
+        Me.btn_rem_win.Name = "btn_rem_win"
+        Me.btn_rem_win.Size = New System.Drawing.Size(103, 19)
+        Me.btn_rem_win.TabIndex = 5
+        Me.btn_rem_win.Text = "Remove Windows"
+        Me.btn_rem_win.UseVisualStyleBackColor = True
         '
         'btn_Rem_Linux
         '
@@ -166,21 +164,21 @@ Partial Class Form1
         '
         'btn_Add_Linux
         '
-        Me.btn_Add_Linux.Location = New System.Drawing.Point(119, 19)
+        Me.btn_Add_Linux.Location = New System.Drawing.Point(352, 19)
         Me.btn_Add_Linux.Name = "btn_Add_Linux"
         Me.btn_Add_Linux.Size = New System.Drawing.Size(103, 19)
         Me.btn_Add_Linux.TabIndex = 3
         Me.btn_Add_Linux.Text = "Add Linux"
         Me.btn_Add_Linux.UseVisualStyleBackColor = True
         '
-        'btn_AddWin
+        'btn_Add_Win
         '
-        Me.btn_AddWin.Location = New System.Drawing.Point(10, 18)
-        Me.btn_AddWin.Name = "btn_AddWin"
-        Me.btn_AddWin.Size = New System.Drawing.Size(103, 20)
-        Me.btn_AddWin.TabIndex = 2
-        Me.btn_AddWin.Text = "Add Windows"
-        Me.btn_AddWin.UseVisualStyleBackColor = True
+        Me.btn_Add_Win.Location = New System.Drawing.Point(10, 18)
+        Me.btn_Add_Win.Name = "btn_Add_Win"
+        Me.btn_Add_Win.Size = New System.Drawing.Size(103, 20)
+        Me.btn_Add_Win.TabIndex = 2
+        Me.btn_Add_Win.Text = "Add Windows"
+        Me.btn_Add_Win.UseVisualStyleBackColor = True
         '
         'lbl_TotalSpace
         '
@@ -211,49 +209,144 @@ Partial Class Form1
         Me.StorageSpace.Size = New System.Drawing.Size(332, 13)
         Me.StorageSpace.TabIndex = 2
         '
-        'ListBox1
-        '
-        Me.ListBox1.FormattingEnabled = True
-        Me.ListBox1.Location = New System.Drawing.Point(12, 13)
-        Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(570, 173)
-        Me.ListBox1.TabIndex = 3
-        '
-        'VScrollBar1
-        '
-        Me.VScrollBar1.Location = New System.Drawing.Point(564, 13)
-        Me.VScrollBar1.Name = "VScrollBar1"
-        Me.VScrollBar1.Size = New System.Drawing.Size(17, 173)
-        Me.VScrollBar1.TabIndex = 4
-        '
-        'FolderBrowser
-        '
-        '
         'BrowseFile
         '
         Me.BrowseFile.FileName = "OpenFileDialog1"
         '
-        'Form1
+        'LinuxList
+        '
+        Me.LinuxList.FormattingEnabled = True
+        Me.LinuxList.Location = New System.Drawing.Point(342, 52)
+        Me.LinuxList.Name = "LinuxList"
+        Me.LinuxList.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.LinuxList.Size = New System.Drawing.Size(240, 134)
+        Me.LinuxList.TabIndex = 5
+        '
+        'LabelLinux
+        '
+        Me.LabelLinux.AutoSize = True
+        Me.LabelLinux.Location = New System.Drawing.Point(364, 13)
+        Me.LabelLinux.MaximumSize = New System.Drawing.Size(185, 0)
+        Me.LabelLinux.Name = "LabelLinux"
+        Me.LabelLinux.Size = New System.Drawing.Size(184, 26)
+        Me.LabelLinux.TabIndex = 6
+        Me.LabelLinux.Text = "Linux Distributions: These are always available for install"
+        '
+        'Linux
+        '
+        Me.Linux.Image = CType(resources.GetObject("Linux.Image"), System.Drawing.Image)
+        Me.Linux.Location = New System.Drawing.Point(546, 10)
+        Me.Linux.Name = "Linux"
+        Me.Linux.Size = New System.Drawing.Size(36, 36)
+        Me.Linux.TabIndex = 7
+        Me.Linux.TabStop = False
+        '
+        'Downloads
+        '
+        Me.Downloads.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Downloads.Image = CType(resources.GetObject("Downloads.Image"), System.Drawing.Image)
+        Me.Downloads.Location = New System.Drawing.Point(7, 103)
+        Me.Downloads.Name = "Downloads"
+        Me.Downloads.Size = New System.Drawing.Size(36, 36)
+        Me.Downloads.TabIndex = 8
+        Me.Downloads.TabStop = False
+        '
+        'grbox_Control
+        '
+        Me.grbox_Control.Controls.Add(Me.ShutDown)
+        Me.grbox_Control.Controls.Add(Me.Cleanup)
+        Me.grbox_Control.Controls.Add(Me.Help)
+        Me.grbox_Control.Controls.Add(Me.Restart)
+        Me.grbox_Control.Controls.Add(Me.Downloads)
+        Me.grbox_Control.Controls.Add(Me.Setup)
+        Me.grbox_Control.Location = New System.Drawing.Point(251, 42)
+        Me.grbox_Control.Name = "grbox_Control"
+        Me.grbox_Control.Size = New System.Drawing.Size(91, 152)
+        Me.grbox_Control.TabIndex = 9
+        Me.grbox_Control.TabStop = False
+        '
+        'PrepareWindows
+        '
+        Me.PrepareWindows.Location = New System.Drawing.Point(251, 8)
+        Me.PrepareWindows.Name = "PrepareWindows"
+        Me.PrepareWindows.Size = New System.Drawing.Size(91, 38)
+        Me.PrepareWindows.TabIndex = 10
+        Me.PrepareWindows.Text = "Install Selected Windows"
+        Me.PrepareWindows.UseVisualStyleBackColor = True
+        '
+        'LabelWindows
+        '
+        Me.LabelWindows.AutoSize = True
+        Me.LabelWindows.Location = New System.Drawing.Point(64, 10)
+        Me.LabelWindows.MaximumSize = New System.Drawing.Size(185, 0)
+        Me.LabelWindows.Name = "LabelWindows"
+        Me.LabelWindows.Size = New System.Drawing.Size(177, 39)
+        Me.LabelWindows.TabIndex = 11
+        Me.LabelWindows.Text = "Windows: Select an item from your list, then click the big button right of this t" & _
+    "ext."
+        '
+        'Windows
+        '
+        Me.Windows.Image = CType(resources.GetObject("Windows.Image"), System.Drawing.Image)
+        Me.Windows.Location = New System.Drawing.Point(12, 10)
+        Me.Windows.Name = "Windows"
+        Me.Windows.Size = New System.Drawing.Size(36, 36)
+        Me.Windows.TabIndex = 12
+        Me.Windows.TabStop = False
+        '
+        'WinList
+        '
+        Me.WinList.FormattingEnabled = True
+        Me.WinList.Location = New System.Drawing.Point(12, 52)
+        Me.WinList.Name = "WinList"
+        Me.WinList.Size = New System.Drawing.Size(240, 108)
+        Me.WinList.TabIndex = 13
+        '
+        'CurrentOS
+        '
+        Me.CurrentOS.AutoSize = True
+        Me.CurrentOS.Location = New System.Drawing.Point(109, 168)
+        Me.CurrentOS.Name = "CurrentOS"
+        Me.CurrentOS.Size = New System.Drawing.Size(33, 13)
+        Me.CurrentOS.TabIndex = 14
+        Me.CurrentOS.Text = "None"
+        '
+        'CurOS
+        '
+        Me.CurOS.AutoSize = True
+        Me.CurOS.Location = New System.Drawing.Point(12, 168)
+        Me.CurOS.Name = "CurOS"
+        Me.CurOS.Size = New System.Drawing.Size(91, 13)
+        Me.CurOS.TabIndex = 15
+        Me.CurOS.Text = "Current Windows:"
+        '
+        'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoSize = True
-        Me.ClientSize = New System.Drawing.Size(648, 276)
+        Me.ClientSize = New System.Drawing.Size(593, 276)
+        Me.Controls.Add(Me.CurOS)
+        Me.Controls.Add(Me.CurrentOS)
+        Me.Controls.Add(Me.WinList)
+        Me.Controls.Add(Me.Windows)
+        Me.Controls.Add(Me.LabelWindows)
+        Me.Controls.Add(Me.PrepareWindows)
+        Me.Controls.Add(Me.grbox_Control)
+        Me.Controls.Add(Me.Linux)
+        Me.Controls.Add(Me.LabelLinux)
+        Me.Controls.Add(Me.LinuxList)
         Me.Controls.Add(Me.lbl_TotalSpace)
-        Me.Controls.Add(Me.VScrollBar1)
         Me.Controls.Add(Me.lbl_UsedSpace)
-        Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.StorageSpace)
         Me.Controls.Add(Me.Grbox_Settings)
-        Me.Controls.Add(Me.Grbox_Control)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(664, 330)
+        Me.MaximumSize = New System.Drawing.Size(609, 314)
         Me.MinimizeBox = False
-        Me.MinimumSize = New System.Drawing.Size(664, 267)
-        Me.Name = "Form1"
+        Me.MinimumSize = New System.Drawing.Size(609, 314)
+        Me.Name = "MainForm"
         Me.Text = "OS Changer"
-        Me.Grbox_Control.ResumeLayout(False)
         CType(Me.Help, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Setup, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Cleanup, System.ComponentModel.ISupportInitialize).EndInit()
@@ -261,12 +354,15 @@ Partial Class Form1
         CType(Me.ShutDown, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Grbox_Settings.ResumeLayout(False)
         CType(Me.logo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Linux, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Downloads, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.grbox_Control.ResumeLayout(False)
+        CType(Me.Windows, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
-    Friend WithEvents Grbox_Control As System.Windows.Forms.GroupBox
     Friend WithEvents Help As System.Windows.Forms.PictureBox
     Friend WithEvents Setup As System.Windows.Forms.PictureBox
     Friend WithEvents Cleanup As System.Windows.Forms.PictureBox
@@ -274,16 +370,25 @@ Partial Class Form1
     Friend WithEvents ShutDown As System.Windows.Forms.PictureBox
     Friend WithEvents Grbox_Settings As System.Windows.Forms.GroupBox
     Friend WithEvents StorageSpace As System.Windows.Forms.ProgressBar
-    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
-    Friend WithEvents VScrollBar1 As System.Windows.Forms.VScrollBar
     Friend WithEvents lbl_UsedSpace As System.Windows.Forms.Label
     Friend WithEvents lbl_TotalSpace As System.Windows.Forms.Label
-    Friend WithEvents btn_AddWin As System.Windows.Forms.Button
+    Friend WithEvents btn_Add_Win As System.Windows.Forms.Button
     Friend WithEvents FolderBrowser As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents logo As System.Windows.Forms.PictureBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btn_rem_win As System.Windows.Forms.Button
     Friend WithEvents btn_Rem_Linux As System.Windows.Forms.Button
     Friend WithEvents btn_Add_Linux As System.Windows.Forms.Button
     Friend WithEvents BrowseFile As System.Windows.Forms.OpenFileDialog
+    Friend WithEvents LinuxList As System.Windows.Forms.ListBox
+    Friend WithEvents LabelLinux As System.Windows.Forms.Label
+    Friend WithEvents Linux As System.Windows.Forms.PictureBox
+    Friend WithEvents Downloads As System.Windows.Forms.PictureBox
+    Friend WithEvents grbox_Control As System.Windows.Forms.GroupBox
+    Friend WithEvents PrepareWindows As System.Windows.Forms.Button
+    Friend WithEvents LabelWindows As System.Windows.Forms.Label
+    Friend WithEvents Windows As System.Windows.Forms.PictureBox
+    Friend WithEvents WinList As System.Windows.Forms.ListBox
+    Friend WithEvents CurrentOS As System.Windows.Forms.Label
+    Friend WithEvents CurOS As System.Windows.Forms.Label
 
 End Class

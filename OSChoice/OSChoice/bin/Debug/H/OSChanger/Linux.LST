@@ -1,0 +1,15 @@
+﻿title     > Debian760.iso
+map \OSChanger\Debian760.iso (0xff)
+map --hook
+chainloader (0xff)
+
+title     > Debian760.iso
+map \OSChanger\Debian760.iso (0xff)
+map --hook
+chainloader (0xff)
+
+title     > Debian760.iso
+map \OSChanger\Debian760.iso (0xff)
+map --hook
+chainloader (0xff)
+

@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OSChoice.exe" size="438784">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OSChoice.exe" size="450560">
       <assemblyIdentity name="OSChoice" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ia+/SSGNFtPF9shzkr+mDcI9OWzOC3LceZNr1Iz/BQM=</dsig:DigestValue>
+        <dsig:DigestValue>qNSAgKfOCThqEAgbAaRasdlbt9C6+HXYgGS0V8dI/hU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,7 +62,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>4ZiGuqNJslqYNSI/UNQ+T3dQ3d+woGHe/C1a8F7ZZYY=</dsig:DigestValue>
+        <dsig:DigestValue>TNXuYmQcLIHnzIt2JMoetaaLzgyKpDqNDbXNk33Qou0=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
